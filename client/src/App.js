@@ -1,38 +1,34 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux';
+import store, { history } from './store';
 
-import logo from './logo.svg';
-
+// Styles
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
+// routes
+import routes from './routes';
+
+// common components
+import Header from './common/components/Header'
+import Footer from './common/components/Footer'
+
 class App extends Component {
-  state = {
-    response: ''
-  };
-
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
-  }
-
-  callApi = async () => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">{this.state.response}</p>
-      </div>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <div className="App">
+            <Header />
+            <div className="wrap">
+              {routes}
+            </div>
+            <Footer />
+          </div>
+        </ConnectedRouter>
+      </Provider>
     );
   }
 }
