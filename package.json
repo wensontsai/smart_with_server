@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Example on using create-react-app with a Node Express Backend",
   "author": {
-    "name": "Esau Silva",
-    "email": "esausilva85@gmail.com",
-    "url": "https://esausilva.com"
+    "name": "",
+    "email": "",
+    "url": ""
   },
   "license": "MIT",
   "scripts": {
