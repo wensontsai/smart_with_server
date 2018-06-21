@@ -30,25 +30,28 @@ class Header extends Component {
 	render () {
 		return (
 	    <header>
-	    	<Container>
-					<Navbar color="faded" light expand="md">
-	          <NavbarBrand href="/">smart_with_server</NavbarBrand>
-	          <NavbarToggler onClick={this.toggle} />
-	          <Collapse isOpen={this.state.isOpen} navbar>
-	            <Nav className="ml-auto" navbar>
-	              <NavItem>
-	                <NavLink href="#/">Home</NavLink>
-	              </NavItem>
-	              <NavItem>
-	                <NavLink href="#/about">About</NavLink>
-	              </NavItem>
+            <Container>
+            <Navbar color="faded" light expand="md">
+              <NavbarBrand href="/">smart_with_server</NavbarBrand>
+              <NavbarToggler onClick={this.toggle} />
+              <Collapse isOpen={this.state.isOpen} navbar>
+                <Nav className="ml-auto" navbar>
+                  <NavItem>
+                    <NavLink href="#/">Home</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="#/about">About</NavLink>
+                  </NavItem>
                   <NavItem>
                     <NavLink href="#/campaigns">Campaigns</NavLink>
                   </NavItem>
-	            </Nav>
-	          </Collapse>
-	        </Navbar>
-        </Container>
+                  <NavItem>
+                    <NavLink href="#/campaigns/new">+</NavLink>
+                  </NavItem>
+                </Nav>
+              </Collapse>
+            </Navbar>
+            </Container>
 	    </header>
 	  )
 	}
