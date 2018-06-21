@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import { Card, Button, Menu } from 'semantic-ui-react';
-import UserRepos from './containers/UserRepos';
+// import UserRepos from './containers/UserRepos';
 import factory from '../ethereum/factory';
 import './style.css';
 
@@ -10,37 +10,40 @@ class CampaignsIndex extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-		  campaigns: []
-		};
+		this.state = {};
 	}
 
-	async componentWillMount() {
+	static async componentWillMount() {
 		// const campaigns = await factory.methods.getDeployedCampaigns().call();
 
-		// this.state.campaigns = campaigns;
-		console.log("wtf", this.state.campaigns);
+		this.setState({
+			campaigns: campaigns
+		});
 	}
 
 	renderCampaigns() {
-		// const items = this.state.compaigns.map(address => {
-		// 	return {
-		// 		header: address,
-		// 		description: <a>View Campaign</a>,
-		// 		fluid: true
-		// 	};
-		// });
+		console.log(this.state.campaigns);
+		const items = this.state.campaigns.map(address => {
+			return {
+				header: address,
+				description: <a>View Campaign</a>,
+				fluid: true
+			};
+		});
 
-		const items = [{
-			header: "itsa me a card!",
-			description: <a href=''>shiiit</a>,
-			fluid: true
-		}]
+		// const items = [{
+		// 	header: "itsa me a card!",
+		// 	description: <a href=''>shiiit</a>,
+		// 	fluid: true
+		// }]
 
 		return <Card.Group items={items} />;
 	}
 
 	render() {
+		console.log(this.state.campaigns);
+
+
 		return (
 			<div id="Campaigns">
 				<Container>
